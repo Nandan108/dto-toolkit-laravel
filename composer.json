@@ -1,0 +1,40 @@
+{
+    "name": "nandan108/dto-toolkit-laravel",
+    "description": "Laravel adapter for DTO Toolkit (DTOT)",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "nandan108/dto-toolkit": "^1.0",
+        "laravel/framework": "^10.0 || ^11.0 || ^12.0"
+    },
+    "require-dev": {
+        "php": ">=8.1 <8.6",
+        "phpunit/phpunit": "^10.0",
+        "symfony/var-dumper": "^6.0 || ^7.0",
+        "mockery/mockery": "^1.6",
+        "vimeo/psalm": "^6.12",
+        "nunomaduro/collision": "^6.4",
+        "friendsofphp/php-cs-fixer": "^3.92"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nandan108\\DtoToolkitLaravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nandan108\\DtoToolkit\\Laravel\\DtoToolkitServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Samuel de Rougemont",
+            "email": "nandan108@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
