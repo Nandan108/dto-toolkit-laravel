@@ -1,25 +1,35 @@
 {
     "name": "nandan108/dto-toolkit-laravel",
+    "version": "v0.1.0",
     "description": "Laravel adapter for DTO Toolkit (DTOT)",
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "nandan108/dto-toolkit": "^1.0",
+        "php": ">=8.1.31 <8.6",
+        "nandan108/dto-toolkit": "^1.4.4",
         "laravel/framework": "^10.0 || ^11.0 || ^12.0"
     },
+    "scripts": {
+        "cs-fix": "./vendor/bin/php-cs-fixer fix --allow-risky=yes --diff",
+        "psalm": "./vendor/bin/psalm",
+        "test": "./vendor/bin/phpunit",
+        "testAndCover": "./vendor/bin/phpunit --coverage-text --coverage-html coverage"
+    },
     "require-dev": {
-        "php": ">=8.1 <8.6",
+        "php": ">=8.1.31 <8.6",
+        "ext-pdo_sqlite": "*",
+        "ext-sqlite3": "*",
         "phpunit/phpunit": "^10.0",
         "symfony/var-dumper": "^6.0 || ^7.0",
         "mockery/mockery": "^1.6",
         "vimeo/psalm": "^6.12",
         "nunomaduro/collision": "^6.4",
-        "friendsofphp/php-cs-fixer": "^3.92"
+        "friendsofphp/php-cs-fixer": "^3.92",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "autoload": {
         "psr-4": {
-            "Nandan108\\DtoToolkitLaravel\\": "src/"
+            "Nandan108\\DtoToolkit\\Laravel\\": "src/"
         }
     },
     "extra": {
@@ -27,6 +37,14 @@
             "providers": [
                 "Nandan108\\DtoToolkit\\Laravel\\DtoToolkitServiceProvider"
             ]
+        },
+        "merge-plugin": {
+            "include": [
+                "composer.local.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "ignore-duplicates": false
         }
     },
     "authors": [
@@ -35,6 +53,14 @@
             "email": "nandan108@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "php": "8.1.31"
+        },
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true
+        }
+    }
 }
